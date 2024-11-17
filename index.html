@@ -309,6 +309,11 @@
             // function which toggles a card 
             function toggleCard(card) {
                 card.classList.toggle('expanded');
+                if (card.classList.contains('expanded')) {
+                    card.style.height = 'auto'; 
+                } else {
+                    card.style.height = ''; 
+                }
             }
 
         </script>
