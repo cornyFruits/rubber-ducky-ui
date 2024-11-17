@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pico W Ducky</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
+
+        <style>
+            body {
+                font-family: 'Titillium Web', sans-serif; 
+                color: #00ff00f2;
+                background-color: black;
+                font-size: 20px;
+            }
+
+            h1 {
+                font-weight: 600;
+                color: #00ff00f2;
+                margin-top: 150px;
+                font-size: 50px;
+                text-align: center;
+            }
+
+            h4 {
+                font-size: 30px;
+                margin-top: -15px;
+                text-align: center;
+                font-weight: 600;
+            }
+            
+            h2 {
+                font-weight: 600;
+            }
+
+            a {
+                text-decoration: none;
+                color: #00ff00f2;
+            }
+
+            a:hover {
+                text-decoration: underline;
+            }
+
+            .overall-container {
+                display: flex;
+                flex-direction: column;
+                margin-left: 70px; 
+                margin-right: 70px; 
+                flex-wrap: wrap;
+            }
+
+            .info-container,
+            .attack-container {
+                display: flex;
+                justify-content: space-around;
+                margin: 20px 0;
+                margin-bottom: 70px;
+            }
+
+            .cards {
+                border-radius: 15px;
+                width: 30%;
+                height: 100px;
+                margin-right: 20px;
+                background-color: #00ff00f2;
+                color: black;
+                font-weight: 600;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                text-align: left;
+                cursor: pointer;
+                transition: height 0.3s ease, background-color 0.3s ease;
+                overflow: hidden;
+                padding: 10px;
+                word-wrap: break-word; 
+                overflow-wrap: break-word;
+            }
+
+            .cards:hover {
+                background-color: #006400; 
+            }
+
+            .cards.expanded {
+                height: 400px;
+                font-weight: 500;
+            }
+
+            .cards.expanded h4 {
+                font-weight: bold;
+                margin: 0; /* Align title at top left */
+            }
+
+            .cards .extra-content {
+                display: none;
+                margin-top: 10px;
+                word-wrap: break-word; 
+                overflow-wrap: break-word;
+            }
+
+            .cards.expanded .extra-content {
+                display: block; /* show extra content */
+                text-align: left;
+                padding: 15px;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div>
+            <h1 id="typedHeading"></h1>
+            <h4 id="typedSubheading"></h4>
+        </div>
+        <div class="overall-container">
+            <h2>info</h2>
+            <div class="info-container">
+                <div class="cards" onclick="toggleCard(this)">
+                    <h3>what</h3>
+                    <div class="extra-content">
+                        <p>a rubber ducky is the street name for a 'bad usb'. it looks like a regular usb, but when plugged into a device, it can be used to hack into it.</p>
+                        <p>this is because the machine sees it as a usb keyboard, accepting the keystroke commands from the device (assuming it is a human).</p> 
+                    </div>
+                </div>
+                <div class="cards" onclick="toggleCard(this)">
+                    <h3>how</h3>
+                    <div class="extra-content">
+                       
+                    </div>
+                </div>
+                <div class="cards" onclick="toggleCard(this)">
+                    <h3>types</h3>
+                </div>
+            </div>
+            
+            <div class="info-container">
+                <div class="cards" onclick="toggleCard(this)">
+                    <h3>security implications</h3>
+                    <div class="extra-content">
+                        <p></p> 
+                    </div>
+                </div>
+                <div class="cards" onclick="toggleCard(this)">
+                    <h3>real-world</h3>
+                    <div class="extra-content">
+                        <p>hospitality attack</p>
+                        <p>stuxnet attack</p> 
+                    </div>
+                </div>
+                <div class="cards" onclick="toggleCard(this)">
+                    <h3>prevention</h3>
+                </div>
+            </div>
+
+            <h2>attacks</h2>
+            <div class="attack-container">
+                <div class="cards" onclick="toggleCard(this)">rick-roll</div>
+                <div class="cards" onclick="toggleCard(this)">keylogger</div>
+                <div class="cards" onclick="toggleCard(this)">ducky script guide</div>
+            </div>
+        </div>
+      
+        <script>
+            // simulate typing implementation
+            const headingText = "/rubber-ducky";
+            const subheadingText = "the (bad) usb";
+            const headingElement= document.getElementById('typedHeading');
+            const subheadingElement= document.getElementById('typedSubheading');
+            let index = 0;
+
+            // function that types text character by character into a specified element 
+            function typeText(text, element, callback) {
+                if (index < text.length) {
+                    element.textContent += text.charAt(index);
+                    index++;
+                    setTimeout(() => typeText(text, element, callback), 100);
+                } else if (callback) {
+                    callback();
+                }
+            }
+
+            // function that starts typing effect for heading and subheading
+            function startTyping() {
+                typeText(headingText, headingElement, () => {
+                    index = 0; 
+                    typeText(subheadingText, subheadingElement)
+                }) 
+            }
+
+            // simulate typing effect on initial load of webpage
+            window.onload = startTyping;
+
+            // function which toggles a card 
+            function toggleCard(card) {
+                card.classList.toggle('expanded');
+            }
+
+        </script>
+    </body>
+</html>
