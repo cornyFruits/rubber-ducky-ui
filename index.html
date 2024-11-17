@@ -68,32 +68,34 @@
             .cards {
                 border-radius: 15px;
                 width: 30%;
-                height: 40%;
+                max-height: 400px; /* Ensure content does not overflow */
                 margin-right: 20px;
                 background-color: #00ff00f2;
                 color: black;
                 font-weight: 600;
                 display: flex;
                 flex-direction: column;
-                justify-content: center;
+                justify-content: flex-start;
                 align-items: center;
                 text-align: left;
                 cursor: pointer;
                 transition: height 0.3s ease, background-color 0.3s ease;
-                overflow: hidden;
+                overflow: hidden; /* Ensure no content spills outside */
                 padding: 10px;
                 word-wrap: break-word; 
                 overflow-wrap: break-word;
+            }
+
+            .cards.expanded {
+                height: 400px; /* Match the max-height to maintain consistency */
+                overflow-y: auto; /* Add a scrollbar if content exceeds height */
+                font-weight: 500;
             }
 
             .cards:hover {
                 background-color: #006400; 
             }
 
-            .cards.expanded {
-                height: 400px;
-                font-weight: 500;
-            }
 
             .cards.expanded h4 {
                 font-weight: bold;
