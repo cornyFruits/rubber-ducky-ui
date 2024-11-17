@@ -119,37 +119,46 @@
                 <div class="cards" onclick="toggleCard(this)">
                     <h3>what</h3>
                     <div class="extra-content">
-                        <p>a rubber ducky is the street name for a 'bad usb'. it looks like a regular usb, but when plugged into a device, it can be used to hack into it.</p>
-                        <p>this is because the machine sees it as a usb keyboard, accepting the keystroke commands from the device (assuming it is a human).</p> 
+                        <p>a rubber ducky is a 'bad usb' that mimics a keyboard and automatically types pre-programmed keystrokes when plugged into a computer.</p>
+                        <p>because it looks like a regular, harmless usb, it bypasses many security measures. it can be used maliciously, but is also used for penetration testing.</p> 
                     </div>
                 </div>
                 <div class="cards" onclick="toggleCard(this)">
                     <h3>how</h3>
                     <div class="extra-content">
-                       
+                       <p>rubber duckies work by emulating a human interface device (hid), like a keyboard. once plugged in, they execute scripts in duckyscript, a scripting language.</p>
+                       <p>these scripts can perform any action that a human typing on a keyboard can do such as opening a terminal, configuring settings and downloading malicious software.</p>
                     </div>
                 </div>
                 <div class="cards" onclick="toggleCard(this)">
-                    <h3>types</h3>
+                    <h3>security implications</h3>
+                    <div class="extra-content">
+                        <p>rubber ducky attacks highlight the risks of physical access and the trust placed in usb devices. it is easy to use and deploy, which makes it a significant threat in all environments.</p>
+                        <p>these devices: can execute malicious commands, are suspectible to network attacks, exploit the trust os systems have in usb devices and can be used to steal sensitive information.</p>
+                     </div>
                 </div>
             </div>
             
             <div class="info-container">
                 <div class="cards" onclick="toggleCard(this)">
-                    <h3>security implications</h3>
+                    <h3>hospitality attack</h3>
                     <div class="extra-content">
-                        <p></p> 
+                        <p>In 2020, hackers targeted hotel chains using rubber ducky devices. employees unknowingly plugged these devices into company infrastructure, which triggered malicious scripts that exfiltrated guest data and installed backdoors into the company's network.</p> 
+                        <p>the attack compromised sensitive customer information, such as payment details, demonstrating how these devices exploit human vulnerbilities.</p>
                     </div>
                 </div>
                 <div class="cards" onclick="toggleCard(this)">
-                    <h3>real-world</h3>
+                    <h3>stuxnet attack</h3>
                     <div class="extra-content">
-                        <p>hospitality attack</p>
-                        <p>stuxnet attack</p> 
+                        <p>this was not technically a rubber ducky attack, but it did rely on usb drives to infiltrate iranian nuclear facilities in 2010.</p>
+                        <p>usb drives, containing malicious payloads, targeted specific industrial control systems. this attack highlighted how damaging usb-based methods can be and how physical access can be used with cyber-espionage.</p>
                     </div>
                 </div>
                 <div class="cards" onclick="toggleCard(this)">
                     <h3>prevention</h3>
+                    <div class="extra-content">
+                        <p>organisations can mitigate rubber ducky attacks by: educating employees on the risks and dangers of plugging in unknown drives into devices, disabling usb ports when necessary, implementing endpoint protection software and keeping systems and firmware updated - to name a few.</p>
+                    </div>
                 </div>
             </div>
 
