@@ -68,7 +68,6 @@
             .cards {
                 border-radius: 15px;
                 width: 30%;
-                max-height: 400px; /* Ensure content does not overflow */
                 margin-right: 20px;
                 background-color: #00ff00f2;
                 color: black;
@@ -79,17 +78,22 @@
                 align-items: center;
                 text-align: left;
                 cursor: pointer;
-                transition: height 0.3s ease, background-color 0.3s ease;
-                overflow: hidden; /* Ensure no content spills outside */
+                transition: all 0.3s ease;
                 padding: 10px;
                 word-wrap: break-word; 
                 overflow-wrap: break-word;
-            }
-
+                height: auto; 
+}
             .cards.expanded {
-                height: 400px; /* Match the max-height to maintain consistency */
-                overflow-y: auto; /* Add a scrollbar if content exceeds height */
+                height: 400px; 
+                overflow-y: auto; 
                 font-weight: 500;
+            }
+            
+            .cards h3 {
+                margin: 10px 0;
+                font-size: 20px;
+                font-weight: bold;
             }
 
             .cards:hover {
@@ -105,12 +109,10 @@
             .cards .extra-content {
                 display: none;
                 margin-top: 10px;
-                word-wrap: break-word; 
-                overflow-wrap: break-word;
             }
-
+            
             .cards.expanded .extra-content {
-                display: block; /* show extra content */
+                display: block;
                 text-align: left;
                 padding: 15px;
             }
