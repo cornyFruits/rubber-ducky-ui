@@ -66,38 +66,41 @@
             }
 
             .cards {
-                border-radius: 15px;
-                width: 30%;
-                margin-right: 20px;
-                background-color: #00ff00f2;
-                color: black;
-                font-weight: 600;
-                display: flex;
-                flex-direction: column;
-                justify-content: flex-start;
-                align-items: center;
-                text-align: left;
-                cursor: pointer;
-                padding: 10px;
-                word-wrap: break-word; 
-                overflow-wrap: break-word;
-                height: auto; 
-                transition: height 0.3s ease, background-color 0.3s ease;
-                overflow: hidden; 
-            }
-            
-            .cards.expanded {
-                height: 400px; 
-                overflow-y: auto; 
-                font-weight: 500;
-                overflow: visible;
-            }
-            
-            .cards h3 {
-                margin: 10px 0;
-                font-size: 20px;
-                font-weight: bold;
-            }
+    border-radius: 15px;
+    width: 30%;
+    margin-right: 20px;
+    background-color: #00ff00f2;
+    color: black;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: left;
+    cursor: pointer;
+    padding: 10px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-height: 150px; /* Default height */
+    transition: max-height 0.5s ease, background-color 0.3s ease; /* Smooth animations */
+    overflow: hidden;
+}
+
+.cards.expanded {
+    max-height: 600px; /* Large enough to fit expanded content */
+    overflow-y: auto;
+    font-weight: 500;
+}
+
+.cards h3 {
+    margin: 10px 0;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.cards:hover {
+    background-color: #006400;
+}
 
             .cards:hover {
                 background-color: #006400; 
@@ -115,9 +118,9 @@
             }
             
             .cards.expanded .extra-content {
+                padding: 15px;
                 display: block;
                 text-align: left;
-                padding: 15px;
             }
 
         </style>
@@ -310,21 +313,10 @@
             window.onload = startTyping;
 
             // function which toggles a card 
-        function toggleCard(card) {
-            // Check if the card is currently expanded
-            const isExpanded = card.classList.contains('expanded');
-        
-            // Toggle the clicked card's state
-            if (isExpanded) {
-                // Collapse the card
-                card.classList.remove('expanded');
-                card.style.height = ''; // Reset height
-            } else {
-                // Expand the card
-                card.classList.add('expanded');
-                card.style.height = `${card.scrollHeight}px`; // Dynamically adjust height
+            function toggleCard(card) {
+                // Toggle 'expanded' class
+                card.classList.toggle('expanded');
             }
-        }
 
         </script>
     </body>
