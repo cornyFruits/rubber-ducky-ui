@@ -310,25 +310,19 @@
             window.onload = startTyping;
 
             // function which toggles a card 
-            function toggleCard(card) {
-            // Find any already expanded card
-            const expandedCard = document.querySelector('.cards.expanded');
-        
-            // If there is an expanded card and it's not the clicked card, collapse it
-            if (expandedCard && expandedCard !== card) {
-                expandedCard.classList.remove('expanded');
-                expandedCard.style.height = ''; // Reset height
-            }
-        
-            // Toggle the clicked card
+        function toggleCard(card) {
+            // Check if the card is currently expanded
             const isExpanded = card.classList.contains('expanded');
-            card.classList.toggle('expanded', !isExpanded);
         
-            // Adjust height only for the clicked card if it's being expanded
-            if (!isExpanded) {
-                card.style.height = `${card.scrollHeight}px`; // Dynamically adjust height
+            // Toggle the clicked card's state
+            if (isExpanded) {
+                // Collapse the card
+                card.classList.remove('expanded');
+                card.style.height = ''; // Reset height
             } else {
-                card.style.height = ''; // Reset height if collapsing
+                // Expand the card
+                card.classList.add('expanded');
+                card.style.height = `${card.scrollHeight}px`; // Dynamically adjust height
             }
         }
 
